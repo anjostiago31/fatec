@@ -1,0 +1,1434 @@
+
+/* =========================================
+   PROJETO INTEGRADOR - FATEC GARÇA
+   CSS PRINCIPAL
+========================================= */
+
+:root {
+    --azul: #17324d;
+    --azul-escuro: #10263b;
+    --azul-claro: #eaf3f9;
+    --destaque: #3285b8;
+    --branco: #ffffff;
+    --fundo: #f5f7fa;
+    --texto: #253443;
+    --cinza: #627181;
+    --borda: #dce5ed;
+    --sombra: 0 8px 25px rgba(0, 0, 0, .07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--branco);
+    color: var(--texto);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1150px, 92%);
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    background: var(--azul-escuro);
+    color: var(--branco);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cabecalho-conteudo {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca-simbolo {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    background: var(--destaque);
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.marca strong,
+.marca small {
+    display: block;
+}
+
+.marca small {
+    color: #bbcede;
+    font-size: .75rem;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.navegacao a {
+    font-size: .85rem;
+    padding: 10px 0;
+    color: #d8e4ee;
+    transition: color .2s;
+}
+
+.navegacao a:hover,
+.navegacao a.ativo {
+    color: #80cfff;
+}
+
+.botao-menu {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #17324d,
+        #245578
+    );
+    color: white;
+    padding: 100px 0;
+}
+
+.hero-conteudo {
+    max-width: 950px;
+    text-align: center;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 7px 15px;
+    border: 1px solid #79a8c8;
+    border-radius: 30px;
+    color: #c5e5fb;
+    font-size: .75rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero-subtitulo {
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: #c6e5f8;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 780px;
+    margin: 0 auto 20px;
+}
+
+.hero-botoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+/* BOTÕES */
+
+.botao {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.botao:hover {
+    transform: translateY(-3px);
+}
+
+.botao-primario {
+    background: #ffffff;
+    color: var(--azul);
+}
+
+.botao-secundario {
+    border: 1px solid white;
+    color: white;
+}
+
+.botao-escuro {
+    background: var(--azul);
+    color: white;
+}
+
+/* SEÇÕES */
+
+.secao {
+    padding: 80px 0;
+}
+
+.secao-alternativa {
+    background: var(--fundo);
+}
+
+.secao-cabecalho {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 45px;
+}
+
+.secao-etiqueta {
+    display: block;
+    color: var(--destaque);
+    font-weight: bold;
+    font-size: .8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.secao h2 {
+    color: var(--azul);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 18px;
+}
+
+.secao h3 {
+    color: var(--azul);
+    margin-bottom: 12px;
+}
+
+.secao p {
+    color: var(--cinza);
+    margin-bottom: 15px;
+}
+
+/* PANORAMA */
+
+.panorama {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.destaque {
+    background: var(--azul-claro);
+    padding: 35px;
+    border-radius: 15px;
+    border-left: 5px solid var(--destaque);
+}
+
+.destaque-icone {
+    font-size: 2.5rem;
+    color: var(--destaque);
+}
+
+.destaque a,
+.card a {
+    color: #176b9c;
+    font-weight: bold;
+}
+
+/* CARDS */
+
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: var(--sombra);
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icone {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    background: var(--azul-claro);
+    color: var(--azul);
+    border-radius: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* TEMAS */
+
+.grade-temas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.tema {
+    padding: 28px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: white;
+}
+
+/* INTEGRANTES */
+
+.grade-integrantes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.integrante {
+    text-align: center;
+    background: white;
+    padding: 30px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--borda);
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 20px;
+    background: var(--azul-claro);
+    color: var(--azul);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.integrante h3 {
+    font-size: 1.05rem;
+}
+
+.integrante p {
+    font-size: .9rem;
+}
+
+.centro {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* INSTITUIÇÃO */
+
+.instituicao {
+    text-align: center;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    background: var(--azul-escuro);
+    color: white;
+    padding: 45px 0 20px;
+}
+
+.rodape-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.rodape p {
+    color: #c2d1dd;
+    font-size: .9rem;
+}
+
+.rodape-final {
+    border-top: 1px solid #36516a;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* TABLETS */
+
+@media (max-width: 1000px) {
+
+    .botao-menu {
+        display: block;
+    }
+
+    .navegacao {
+        display: none;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        right: 0;
+        background: var(--azul-escuro);
+        padding: 20px 4%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navegacao.aberto {
+        display: flex;
+    }
+
+    .navegacao a {
+        padding: 12px;
+    }
+
+    .grade-cards,
+    .grade-integrantes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 650px) {
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .hero-subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .secao {
+        padding: 55px 0;
+    }
+
+    .panorama,
+    .grade-cards,
+    .grade-temas,
+    .grade-integrantes,
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .destaque {
+        padding: 25px;
+    }
+
+    .card,
+    .tema {
+        padding: 23px;
+    }
+}
+
+
+/* =========================================
+   PÁGINA PROJETO
+========================================= */
+
+/* TÍTULO INTERNO */
+
+.pagina-hero {
+    background: linear-gradient(
+        135deg,
+        #17324d,
+        #245578
+    );
+
+    color: white;
+    padding: 75px 0;
+    text-align: center;
+}
+
+.pagina-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 15px;
+}
+
+.pagina-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #d5e5f0;
+}
+
+/* CONTEÚDO ACADÊMICO */
+
+.conteudo-academico {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.conteudo-academico h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.conteudo-academico p {
+    text-align: justify;
+    margin-bottom: 20px;
+    line-height: 1.9;
+}
+
+/* PROBLEMA DE PESQUISA */
+
+.bloco-pesquisa {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-left: 5px solid var(--destaque);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+}
+
+.bloco-pesquisa p {
+    color: var(--azul);
+    font-size: 1.15rem;
+    line-height: 1.9;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* OBJETIVOS */
+
+.objetivos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.objetivo-card {
+    background: white;
+    padding: 35px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.objetivo-numero {
+    display: inline-block;
+    color: var(--destaque);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.objetivo-card h3 {
+    margin-bottom: 18px;
+}
+
+.objetivo-card ul {
+    padding-left: 22px;
+}
+
+.objetivo-card li {
+    color: var(--cinza);
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+/* OBSERVAÇÃO */
+
+.observacao-metodologia {
+    margin-top: 25px;
+    font-size: .9rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+
+    .pagina-hero {
+        padding: 55px 0;
+    }
+
+    .conteudo-academico p {
+        text-align: left;
+    }
+
+    .bloco-pesquisa {
+        padding: 25px;
+    }
+
+    .bloco-pesquisa p {
+        font-size: 1rem;
+    }
+
+    .objetivos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .objetivo-card {
+        padding: 25px;
+    }
+}
+
+
+/* =========================================
+   PÁGINA ETAPAS - PI 1 E PI 2
+========================================= */
+
+/* ABAS INTERATIVAS */
+
+.abas-etapas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 45px;
+}
+
+.aba-botao {
+    padding: 15px 30px;
+    border: 2px solid var(--borda);
+    border-radius: 10px;
+    background: white;
+    color: var(--azul);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.aba-botao:hover {
+    border-color: var(--destaque);
+}
+
+.aba-botao.ativo {
+    background: var(--azul);
+    color: white;
+    border-color: var(--azul);
+}
+
+.aba-botao:focus-visible {
+    outline: 3px solid var(--destaque);
+    outline-offset: 3px;
+}
+
+/* PAINÉIS */
+
+.painel-etapa {
+    animation: aparecer .3s ease;
+}
+
+.painel-etapa[hidden] {
+    display: none;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* INTRODUÇÃO DAS ETAPAS */
+
+.etapa-introducao {
+    max-width: 850px;
+    margin-bottom: 40px;
+}
+
+.etapa-introducao h2 {
+    margin-bottom: 15px;
+}
+
+/* CARDS */
+
+.grade-etapas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.etapa-card {
+    padding: 30px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.etapa-numero {
+    display: inline-block;
+    color: var(--destaque);
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.etapa-card h3 {
+    font-size: 1.2rem;
+}
+
+.etapa-status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 7px 12px;
+    background: #e7f4ed;
+    color: #246343;
+    border-radius: 6px;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.etapa-status.planejado {
+    background: #edf1f5;
+    color: #4e6071;
+}
+
+/* DETALHES */
+
+.etapa-detalhes {
+    margin-top: 45px;
+    padding: 35px;
+    background: var(--azul-claro);
+    border-radius: 14px;
+}
+
+.lista-etapas {
+    padding-left: 22px;
+    columns: 2;
+    column-gap: 40px;
+}
+
+.lista-etapas li {
+    margin-bottom: 14px;
+    break-inside: avoid;
+}
+
+/* DOCUMENTOS */
+
+.documentos-etapa {
+    margin-top: 45px;
+}
+
+.documento-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 25px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+}
+
+.documento-card p {
+    margin: 5px 0 0;
+}
+
+.documento-situacao {
+    color: var(--cinza);
+    font-size: .85rem;
+    white-space: nowrap;
+}
+
+/* LINKS */
+
+.link-etapa {
+    display: inline-block;
+    margin-top: 10px;
+    color: #176b9c;
+    font-weight: bold;
+}
+
+.link-etapa:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+
+    .abas-etapas {
+        flex-direction: column;
+    }
+
+    .aba-botao {
+        width: 100%;
+    }
+
+    .grade-etapas {
+        grid-template-columns: 1fr;
+    }
+
+    .etapa-card,
+    .etapa-detalhes {
+        padding: 23px;
+    }
+
+    .lista-etapas {
+        columns: 1;
+    }
+
+    .documento-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .documento-situacao {
+        white-space: normal;
+    }
+}
+
+
+/* =========================================
+   PÁGINA EMBASAMENTO TEÓRICO
+========================================= */
+
+/* CAMPO DE PESQUISA */
+
+.pesquisa-embasamento {
+    max-width: 650px;
+    margin: 0 auto 25px;
+}
+
+.pesquisa-embasamento label {
+    display: block;
+    font-weight: bold;
+    color: var(--azul);
+    margin-bottom: 10px;
+}
+
+.pesquisa-embasamento input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    font: inherit;
+    background: white;
+}
+
+.pesquisa-embasamento input:focus {
+    outline: 2px solid var(--destaque);
+    outline-offset: 2px;
+}
+
+/* FILTROS */
+
+.filtros-embasamento {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filtro-embasamento {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+    color: var(--azul);
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.filtro-embasamento:hover {
+    border-color: var(--destaque);
+}
+
+.filtro-embasamento.ativo {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: white;
+}
+
+/* CARDS DO EMBASAMENTO */
+
+.grade-embasamento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.embasamento-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    transition: transform .2s;
+}
+
+.embasamento-card:hover {
+    transform: translateY(-4px);
+}
+
+.embasamento-card[hidden] {
+    display: none;
+}
+
+.embasamento-categoria {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 6px 12px;
+    background: var(--azul-claro);
+    color: var(--azul);
+    border-radius: 20px;
+    font-size: .7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.embasamento-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.embasamento-card p {
+    margin-bottom: 15px;
+}
+
+.embasamento-autores {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--borda);
+    color: var(--cinza);
+    font-size: .85rem;
+}
+
+.embasamento-responsavel {
+    display: block;
+    margin-top: 15px;
+    color: var(--destaque);
+    font-size: .85rem;
+    font-weight: bold;
+}
+
+.sem-resultados {
+    padding: 30px;
+    text-align: center;
+    color: var(--cinza);
+}
+
+.sem-resultados[hidden] {
+    display: none;
+}
+
+/* REFERÊNCIAS */
+
+.referencias-lista {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.referencia-item {
+    padding: 25px 0;
+    border-bottom: 1px solid var(--borda);
+}
+
+.referencia-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.referencia-item p {
+    margin-bottom: 8px;
+}
+
+.referencia-item a {
+    color: #176b9c;
+    font-weight: bold;
+}
+
+.referencia-item a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+
+    .grade-embasamento {
+        grid-template-columns: 1fr;
+    }
+
+    .embasamento-card {
+        padding: 23px;
+    }
+
+    .filtros-embasamento {
+        justify-content: flex-start;
+    }
+
+    .filtro-embasamento {
+        padding: 9px 14px;
+        font-size: .85rem;
+    }
+}
+ 
+/* =========================================
+   PÁGINA LEVANTAMENTO DE DADOS
+========================================= */
+
+/* INDICADORES */
+
+.grade-indicadores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.indicador-card {
+    padding: 30px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.indicador-valor {
+    display: block;
+    color: var(--destaque);
+    font-size: 2.7rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.indicador-card h3 {
+    font-size: 1.1rem;
+}
+
+.indicador-card small {
+    color: var(--cinza);
+}
+
+/* NOTAS CIENTÍFICAS */
+
+.nota-cientifica {
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--azul-claro);
+    border-left: 4px solid var(--destaque);
+    border-radius: 8px;
+    font-size: .9rem;
+}
+
+/* GRÁFICO */
+
+.grafico-container {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 35px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+}
+
+.grafico-container h3 {
+    margin-bottom: 30px;
+}
+
+.grafico-item {
+    margin-bottom: 30px;
+}
+
+.grafico-texto {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.grafico-texto strong {
+    color: var(--azul);
+}
+
+.grafico-trilha {
+    width: 100%;
+    height: 24px;
+    background: #e6edf3;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.grafico-barra {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--destaque),
+        var(--azul)
+    );
+    border-radius: 20px;
+    transition: width 1s ease;
+}
+
+.grafico-fonte {
+    font-size: .85rem;
+    margin-top: 20px;
+}
+
+/* TABELA */
+
+.tabela-responsiva {
+    overflow-x: auto;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+}
+
+.tabela-dados {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+.tabela-dados caption {
+    padding: 15px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.tabela-dados th,
+.tabela-dados td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--borda);
+}
+
+.tabela-dados th {
+    background: var(--azul);
+    color: white;
+}
+
+.tabela-dados tbody tr:nth-child(even) {
+    background: var(--fundo);
+}
+
+/* FILTROS DAS ENTREVISTAS */
+
+.filtros-entrevistas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.filtro-entrevista {
+    padding: 11px 20px;
+    border: 1px solid var(--borda);
+    border-radius: 25px;
+    background: white;
+    color: var(--azul);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filtro-entrevista:hover {
+    border-color: var(--destaque);
+}
+
+.filtro-entrevista.ativo {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: white;
+}
+
+/* CARDS DAS ENTREVISTAS */
+
+.grade-entrevistas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.entrevista-card {
+    padding: 28px;
+    background: white;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.entrevista-card[hidden] {
+    display: none;
+}
+
+.entrevista-tipo {
+    display: block;
+    color: var(--destaque);
+    font-size: .75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.entrevista-card h4 {
+    margin: 20px 0 10px;
+    color: var(--azul);
+}
+
+.entrevista-card ul {
+    padding-left: 20px;
+}
+
+.entrevista-card li {
+    margin-bottom: 8px;
+    color: var(--cinza);
+}
+
+.entrevista-situacao {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid var(--borda);
+    font-size: .85rem;
+    font-weight: bold;
+}
+
+/* RESULTADOS */
+
+.resultados-pendentes {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 45px;
+    background: var(--fundo);
+    border: 1px dashed var(--borda);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.resultados-icone {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.resultados-pendentes .botao {
+    margin-top: 15px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1000px) {
+
+    .grade-indicadores,
+    .grade-entrevistas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .grade-indicadores,
+    .grade-entrevistas {
+        grid-template-columns: 1fr;
+    }
+
+    .indicador-card,
+    .entrevista-card,
+    .grafico-container {
+        padding: 23px;
+    }
+
+    .indicador-valor {
+        font-size: 2.3rem;
+    }
+
+    .grafico-texto {
+        font-size: .9rem;
+    }
+
+    .resultados-pendentes {
+        padding: 25px;
+    }
+}
+
+
+/* ==========================================
+   FICHA DE IDENTIFICAÇÃO DA ENTREVISTA
+========================================== */
+
+.ficha-entrevista {
+    margin: 20px 0;
+    padding: 20px;
+    background: var(--azul-claro);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+}
+
+.ficha-entrevista h4 {
+    color: var(--azul);
+    margin: 0 0 15px;
+    font-size: 1rem;
+}
+
+.ficha-entrevista dl {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 10px;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+.ficha-entrevista dt {
+    font-weight: 700;
+    color: var(--azul);
+}
+
+.ficha-entrevista dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   ANÁLISE EXPANSÍVEL DA ENTREVISTA
+========================================== */
+
+.entrevista-detalhes {
+    margin-top: 20px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.entrevista-detalhes summary {
+    padding: 15px;
+    background: var(--azul-claro);
+    color: var(--azul);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.entrevista-detalhes summary:hover {
+    background: #dcecf6;
+}
+
+.entrevista-detalhes summary:focus-visible {
+    outline: 3px solid var(--destaque);
+    outline-offset: -3px;
+}
+
+.entrevista-conteudo {
+    padding: 20px;
+}
+
+.entrevista-conteudo h4 {
+    color: var(--azul);
+    margin: 20px 0 10px;
+    font-size: 1rem;
+}
+
+.entrevista-conteudo h4:first-child {
+    margin-top: 0;
+}
+
+.entrevista-conteudo p {
+    font-size: .9rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   ANÁLISE DOS RESULTADOS
+========================================== */
+
+.analise-pesquisa {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 35px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.analise-pesquisa h3 {
+    color: var(--azul);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.analise-pesquisa p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 650px) {
+
+    .ficha-entrevista {
+        padding: 16px;
+    }
+
+    .ficha-entrevista dl {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .ficha-entrevista dd {
+        margin-bottom: 10px;
+    }
+
+    .entrevista-conteudo {
+        padding: 15px;
+    }
+
+    .analise-pesquisa {
+        padding: 23px;
+    }
+
+    .analise-pesquisa h3 {
+        font-size: 1.15rem;
+    }
+
+}
+
