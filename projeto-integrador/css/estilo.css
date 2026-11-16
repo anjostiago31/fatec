@@ -1,9 +1,10 @@
 
-/* =========================================
+/* ==========================================
    PROJETO INTEGRADOR - FATEC GARÇA
-   CSS PRINCIPAL
-========================================= */
+   CSS PRINCIPAL - VERSÃO CORRIGIDA
+========================================== */
 
+/* CONFIGURAÇÕES GERAIS */
 :root {
     --azul: #17324d;
     --azul-escuro: #10263b;
@@ -43,13 +44,30 @@ button {
     font: inherit;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+[hidden] {
+    display: none !important;
+}
+
 .container {
     width: min(1150px, 92%);
     margin: 0 auto;
 }
 
-/* CABEÇALHO */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--destaque);
+    outline-offset: 3px;
+}
 
+/* ==========================================
+   CABEÇALHO
+========================================== */
 .cabecalho {
     background: var(--azul-escuro);
     color: var(--branco);
@@ -120,15 +138,20 @@ button {
     cursor: pointer;
 }
 
-/* HERO */
-
-.hero {
+/* ==========================================
+   HERO - TODAS AS PÁGINAS
+========================================== */
+.hero,
+.pagina-hero {
     background: linear-gradient(
         135deg,
         #17324d,
         #245578
     );
     color: white;
+}
+
+.hero {
     padding: 100px 0;
 }
 
@@ -148,9 +171,11 @@ button {
     margin-bottom: 25px;
 }
 
-.hero h1 {
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    line-height: 1.15;
+/* TÍTULOS PADRONIZADOS */
+.hero h1,
+.pagina-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
@@ -174,8 +199,20 @@ button {
     margin-top: 35px;
 }
 
-/* BOTÕES */
+.pagina-hero {
+    padding: 75px 0;
+    text-align: center;
+}
 
+.pagina-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #d5e5f0;
+}
+
+/* ==========================================
+   BOTÕES
+========================================== */
 .botao {
     display: inline-block;
     padding: 12px 24px;
@@ -189,7 +226,7 @@ button {
 }
 
 .botao-primario {
-    background: #ffffff;
+    background: white;
     color: var(--azul);
 }
 
@@ -203,8 +240,9 @@ button {
     color: white;
 }
 
-/* SEÇÕES */
-
+/* ==========================================
+   SEÇÕES
+========================================== */
 .secao {
     padding: 80px 0;
 }
@@ -244,8 +282,18 @@ button {
     margin-bottom: 15px;
 }
 
-/* PANORAMA */
+.centro {
+    text-align: center;
+    margin-top: 35px;
+}
 
+.instituicao {
+    text-align: center;
+}
+
+/* ==========================================
+   PANORAMA
+========================================== */
 .panorama {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -266,13 +314,24 @@ button {
 }
 
 .destaque a,
-.card a {
+.card a,
+.panorama-texto a {
     color: #176b9c;
     font-weight: bold;
 }
 
-/* CARDS */
+.panorama-texto {
+    max-width: 950px;
+    margin: 0 auto;
+}
 
+.panorama-texto p {
+    margin-bottom: 18px;
+}
+
+/* ==========================================
+   CARDS
+========================================== */
 .grade-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -304,8 +363,6 @@ button {
     margin-bottom: 20px;
 }
 
-/* TEMAS */
-
 .grade-temas {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -319,8 +376,9 @@ button {
     background: white;
 }
 
-/* INTEGRANTES */
-
+/* ==========================================
+   INTEGRANTES
+========================================== */
 .grade-integrantes {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -333,6 +391,22 @@ button {
     padding: 30px 20px;
     border-radius: 14px;
     border: 1px solid var(--borda);
+}
+
+.foto-integrante-container {
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 22px;
+    display: grid;
+    place-items: center;
+}
+
+.foto-integrante {
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--azul-claro);
 }
 
 .avatar {
@@ -348,151 +422,28 @@ button {
     font-weight: bold;
 }
 
+.foto-integrante-container .avatar {
+    width: 112px;
+    height: 112px;
+    margin: 0;
+}
+
 .integrante h3 {
     font-size: 1.05rem;
 }
 
 .integrante p {
     font-size: .9rem;
+    text-align: left;
 }
 
-.centro {
-    text-align: center;
-    margin-top: 35px;
+.integrante p strong {
+    color: var(--azul);
 }
 
-/* INSTITUIÇÃO */
-
-.instituicao {
-    text-align: center;
-}
-
-/* RODAPÉ */
-
-.rodape {
-    background: var(--azul-escuro);
-    color: white;
-    padding: 45px 0 20px;
-}
-
-.rodape-conteudo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.rodape p {
-    color: #c2d1dd;
-    font-size: .9rem;
-}
-
-.rodape-final {
-    border-top: 1px solid #36516a;
-    margin-top: 30px;
-    padding-top: 20px;
-    text-align: center;
-}
-
-/* TABLETS */
-
-@media (max-width: 1000px) {
-
-    .botao-menu {
-        display: block;
-    }
-
-    .navegacao {
-        display: none;
-        position: absolute;
-        top: 85px;
-        left: 0;
-        right: 0;
-        background: var(--azul-escuro);
-        padding: 20px 4%;
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .navegacao.aberto {
-        display: flex;
-    }
-
-    .navegacao a {
-        padding: 12px;
-    }
-
-    .grade-cards,
-    .grade-integrantes {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* CELULARES */
-
-@media (max-width: 650px) {
-
-    .hero {
-        padding: 70px 0;
-    }
-
-    .hero-subtitulo {
-        font-size: 1.1rem;
-    }
-
-    .secao {
-        padding: 55px 0;
-    }
-
-    .panorama,
-    .grade-cards,
-    .grade-temas,
-    .grade-integrantes,
-    .rodape-conteudo {
-        grid-template-columns: 1fr;
-    }
-
-    .destaque {
-        padding: 25px;
-    }
-
-    .card,
-    .tema {
-        padding: 23px;
-    }
-}
-
-
-/* =========================================
+/* ==========================================
    PÁGINA PROJETO
-========================================= */
-
-/* TÍTULO INTERNO */
-
-.pagina-hero {
-    background: linear-gradient(
-        135deg,
-        #17324d,
-        #245578
-    );
-
-    color: white;
-    padding: 75px 0;
-    text-align: center;
-}
-
-.pagina-hero h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    margin-bottom: 15px;
-}
-
-.pagina-hero p {
-    max-width: 700px;
-    margin: 0 auto;
-    color: #d5e5f0;
-}
-
-/* CONTEÚDO ACADÊMICO */
-
+========================================== */
 .conteudo-academico {
     max-width: 950px;
     margin: 0 auto;
@@ -508,8 +459,6 @@ button {
     margin-bottom: 20px;
     line-height: 1.9;
 }
-
-/* PROBLEMA DE PESQUISA */
 
 .bloco-pesquisa {
     max-width: 950px;
@@ -528,8 +477,6 @@ button {
     font-weight: 500;
     margin: 0;
 }
-
-/* OBJETIVOS */
 
 .objetivos-grid {
     display: grid;
@@ -567,8 +514,6 @@ button {
     line-height: 1.7;
 }
 
-/* OBSERVAÇÃO */
-
 .observacao-metodologia {
     margin-top: 25px;
     font-size: .9rem;
@@ -576,42 +521,9 @@ button {
     text-align: center;
 }
 
-/* RESPONSIVIDADE */
-
-@media (max-width: 650px) {
-
-    .pagina-hero {
-        padding: 55px 0;
-    }
-
-    .conteudo-academico p {
-        text-align: left;
-    }
-
-    .bloco-pesquisa {
-        padding: 25px;
-    }
-
-    .bloco-pesquisa p {
-        font-size: 1rem;
-    }
-
-    .objetivos-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .objetivo-card {
-        padding: 25px;
-    }
-}
-
-
-/* =========================================
-   PÁGINA ETAPAS - PI 1 E PI 2
-========================================= */
-
-/* ABAS INTERATIVAS */
-
+/* ==========================================
+   PÁGINA ETAPAS - PI I E PI II
+========================================== */
 .abas-etapas {
     display: flex;
     justify-content: center;
@@ -641,13 +553,6 @@ button {
     border-color: var(--azul);
 }
 
-.aba-botao:focus-visible {
-    outline: 3px solid var(--destaque);
-    outline-offset: 3px;
-}
-
-/* PAINÉIS */
-
 .painel-etapa {
     animation: aparecer .3s ease;
 }
@@ -668,8 +573,6 @@ button {
     }
 }
 
-/* INTRODUÇÃO DAS ETAPAS */
-
 .etapa-introducao {
     max-width: 850px;
     margin-bottom: 40px;
@@ -678,8 +581,6 @@ button {
 .etapa-introducao h2 {
     margin-bottom: 15px;
 }
-
-/* CARDS */
 
 .grade-etapas {
     display: grid;
@@ -723,8 +624,6 @@ button {
     color: #4e6071;
 }
 
-/* DETALHES */
-
 .etapa-detalhes {
     margin-top: 45px;
     padding: 35px;
@@ -742,8 +641,6 @@ button {
     margin-bottom: 14px;
     break-inside: avoid;
 }
-
-/* DOCUMENTOS */
 
 .documentos-etapa {
     margin-top: 45px;
@@ -771,8 +668,6 @@ button {
     white-space: nowrap;
 }
 
-/* LINKS */
-
 .link-etapa {
     display: inline-block;
     margin-top: 10px;
@@ -784,48 +679,9 @@ button {
     text-decoration: underline;
 }
 
-/* RESPONSIVIDADE */
-
-@media (max-width: 650px) {
-
-    .abas-etapas {
-        flex-direction: column;
-    }
-
-    .aba-botao {
-        width: 100%;
-    }
-
-    .grade-etapas {
-        grid-template-columns: 1fr;
-    }
-
-    .etapa-card,
-    .etapa-detalhes {
-        padding: 23px;
-    }
-
-    .lista-etapas {
-        columns: 1;
-    }
-
-    .documento-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .documento-situacao {
-        white-space: normal;
-    }
-}
-
-
-/* =========================================
-   PÁGINA EMBASAMENTO TEÓRICO
-========================================= */
-
-/* CAMPO DE PESQUISA */
-
+/* ==========================================
+   EMBASAMENTO TEÓRICO
+========================================== */
 .pesquisa-embasamento {
     max-width: 650px;
     margin: 0 auto 25px;
@@ -846,13 +702,6 @@ button {
     font: inherit;
     background: white;
 }
-
-.pesquisa-embasamento input:focus {
-    outline: 2px solid var(--destaque);
-    outline-offset: 2px;
-}
-
-/* FILTROS */
 
 .filtros-embasamento {
     display: flex;
@@ -882,8 +731,6 @@ button {
     border-color: var(--azul);
     color: white;
 }
-
-/* CARDS DO EMBASAMENTO */
 
 .grade-embasamento {
     display: grid;
@@ -959,8 +806,6 @@ button {
     display: none;
 }
 
-/* REFERÊNCIAS */
-
 .referencias-lista {
     max-width: 950px;
     margin: 0 auto;
@@ -989,34 +834,9 @@ button {
     text-decoration: underline;
 }
 
-/* RESPONSIVIDADE */
-
-@media (max-width: 650px) {
-
-    .grade-embasamento {
-        grid-template-columns: 1fr;
-    }
-
-    .embasamento-card {
-        padding: 23px;
-    }
-
-    .filtros-embasamento {
-        justify-content: flex-start;
-    }
-
-    .filtro-embasamento {
-        padding: 9px 14px;
-        font-size: .85rem;
-    }
-}
- 
-/* =========================================
-   PÁGINA LEVANTAMENTO DE DADOS
-========================================= */
-
-/* INDICADORES */
-
+/* ==========================================
+   LEVANTAMENTO DE DADOS
+========================================== */
 .grade-indicadores {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1047,8 +867,6 @@ button {
     color: var(--cinza);
 }
 
-/* NOTAS CIENTÍFICAS */
-
 .nota-cientifica {
     margin-top: 30px;
     padding: 20px;
@@ -1058,9 +876,11 @@ button {
     font-size: .9rem;
 }
 
-/* GRÁFICO */
-
-.grafico-container {
+/* ==========================================
+   GRÁFICOS
+========================================== */
+.grafico-container,
+.grafico-barras {
     max-width: 950px;
     margin: 0 auto;
     padding: 35px;
@@ -1098,7 +918,6 @@ button {
 }
 
 .grafico-barra {
-    width: 0;
     height: 100%;
     background: linear-gradient(
         90deg,
@@ -1114,44 +933,52 @@ button {
     margin-top: 20px;
 }
 
-/* TABELA */
-
+/* ==========================================
+   TABELAS
+========================================== */
 .tabela-responsiva {
     overflow-x: auto;
     border: 1px solid var(--borda);
     border-radius: 12px;
 }
 
-.tabela-dados {
+.tabela-dados,
+.tabela-responsiva table {
     width: 100%;
     min-width: 650px;
     border-collapse: collapse;
 }
 
-.tabela-dados caption {
+.tabela-dados caption,
+.tabela-responsiva table caption {
     padding: 15px;
     font-weight: bold;
     text-align: left;
 }
 
 .tabela-dados th,
-.tabela-dados td {
+.tabela-dados td,
+.tabela-responsiva table th,
+.tabela-responsiva table td {
     padding: 18px;
     text-align: left;
     border-bottom: 1px solid var(--borda);
 }
 
-.tabela-dados th {
+.tabela-dados th,
+.tabela-responsiva table th {
     background: var(--azul);
     color: white;
 }
 
-.tabela-dados tbody tr:nth-child(even) {
+.tabela-dados tbody tr:nth-child(even),
+.tabela-responsiva table tbody tr:nth-child(even) {
     background: var(--fundo);
 }
 
-/* FILTROS DAS ENTREVISTAS */
-
+/* ==========================================
+   FILTROS DAS ENTREVISTAS
+========================================== */
 .filtros-entrevistas {
     display: flex;
     justify-content: center;
@@ -1180,8 +1007,9 @@ button {
     color: white;
 }
 
-/* CARDS DAS ENTREVISTAS */
-
+/* ==========================================
+   CARDS DAS ENTREVISTAS
+========================================== */
 .grade-entrevistas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1231,68 +1059,9 @@ button {
     font-weight: bold;
 }
 
-/* RESULTADOS */
-
-.resultados-pendentes {
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 45px;
-    background: var(--fundo);
-    border: 1px dashed var(--borda);
-    border-radius: 15px;
-    text-align: center;
-}
-
-.resultados-icone {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.resultados-pendentes .botao {
-    margin-top: 15px;
-}
-
-/* RESPONSIVIDADE */
-
-@media (max-width: 1000px) {
-
-    .grade-indicadores,
-    .grade-entrevistas {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 650px) {
-
-    .grade-indicadores,
-    .grade-entrevistas {
-        grid-template-columns: 1fr;
-    }
-
-    .indicador-card,
-    .entrevista-card,
-    .grafico-container {
-        padding: 23px;
-    }
-
-    .indicador-valor {
-        font-size: 2.3rem;
-    }
-
-    .grafico-texto {
-        font-size: .9rem;
-    }
-
-    .resultados-pendentes {
-        padding: 25px;
-    }
-}
-
-
 /* ==========================================
-   FICHA DE IDENTIFICAÇÃO DA ENTREVISTA
+   FICHA DAS ENTREVISTAS
 ========================================== */
-
 .ficha-entrevista {
     margin: 20px 0;
     padding: 20px;
@@ -1323,12 +1092,12 @@ button {
 .ficha-entrevista dd {
     margin: 0;
     overflow-wrap: anywhere;
+    color: var(--texto);
 }
 
 /* ==========================================
-   ANÁLISE EXPANSÍVEL DA ENTREVISTA
+   DETALHES EXPANSÍVEIS
 ========================================== */
-
 .entrevista-detalhes {
     margin-top: 20px;
     border: 1px solid var(--borda);
@@ -1347,11 +1116,6 @@ button {
 
 .entrevista-detalhes summary:hover {
     background: #dcecf6;
-}
-
-.entrevista-detalhes summary:focus-visible {
-    outline: 3px solid var(--destaque);
-    outline-offset: -3px;
 }
 
 .entrevista-conteudo {
@@ -1377,12 +1141,11 @@ button {
 /* ==========================================
    ANÁLISE DOS RESULTADOS
 ========================================== */
-
 .analise-pesquisa {
     max-width: 950px;
     margin: 0 auto;
     padding: 35px;
-    background: var(--branco);
+    background: white;
     border: 1px solid var(--borda);
     border-radius: 14px;
     box-shadow: var(--sombra);
@@ -1400,10 +1163,211 @@ button {
 }
 
 /* ==========================================
-   RESPONSIVIDADE
+   RESULTADOS PENDENTES
 ========================================== */
+.resultados-pendentes {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 45px;
+    background: var(--fundo);
+    border: 1px dashed var(--borda);
+    border-radius: 15px;
+    text-align: center;
+}
 
+.resultados-icone {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.resultados-pendentes .botao {
+    margin-top: 15px;
+}
+
+/* ==========================================
+   PROTEÇÃO DOS CARDS
+========================================== */
+.card,
+.tema,
+.integrante,
+.entrevista-card,
+.indicador-card,
+.etapa-card,
+.embasamento-card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+.rodape {
+    background: var(--azul-escuro);
+    color: white;
+    padding: 45px 0 20px;
+}
+
+.rodape-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.rodape p {
+    color: #c2d1dd;
+    font-size: .9rem;
+}
+
+.rodape-final {
+    border-top: 1px solid #36516a;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVIDADE - TABLETS
+========================================== */
+@media (max-width: 1000px) {
+
+    .botao-menu {
+        display: block;
+    }
+
+    .navegacao {
+        display: none;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        right: 0;
+        background: var(--azul-escuro);
+        padding: 20px 4%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navegacao.aberto {
+        display: flex;
+    }
+
+    .navegacao a {
+        padding: 12px;
+    }
+
+    .grade-cards,
+    .grade-integrantes,
+    .grade-indicadores,
+    .grade-entrevistas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================
+   RESPONSIVIDADE - CELULARES
+========================================== */
 @media (max-width: 650px) {
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .hero-subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .pagina-hero {
+        padding: 55px 0;
+    }
+
+    .secao {
+        padding: 55px 0;
+    }
+
+    .panorama,
+    .grade-cards,
+    .grade-temas,
+    .grade-integrantes,
+    .rodape-conteudo,
+    .objetivos-grid,
+    .grade-etapas,
+    .grade-embasamento,
+    .grade-indicadores,
+    .grade-entrevistas {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .destaque {
+        padding: 25px;
+    }
+
+    .card,
+    .tema,
+    .objetivo-card,
+    .etapa-card,
+    .embasamento-card,
+    .indicador-card,
+    .entrevista-card {
+        padding: 23px;
+    }
+
+    .conteudo-academico p {
+        text-align: left;
+    }
+
+    .bloco-pesquisa {
+        padding: 25px;
+    }
+
+    .bloco-pesquisa p {
+        font-size: 1rem;
+    }
+
+    .abas-etapas {
+        flex-direction: column;
+    }
+
+    .aba-botao {
+        width: 100%;
+    }
+
+    .etapa-detalhes {
+        padding: 23px;
+    }
+
+    .lista-etapas {
+        columns: 1;
+    }
+
+    .documento-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .documento-situacao {
+        white-space: normal;
+    }
+
+    .filtros-embasamento {
+        justify-content: flex-start;
+    }
+
+    .filtro-embasamento {
+        padding: 9px 14px;
+        font-size: .85rem;
+    }
+
+    .indicador-valor {
+        font-size: 2.3rem;
+    }
+
+    .grafico-container,
+    .grafico-barras {
+        padding: 23px;
+    }
+
+    .grafico-texto {
+        font-size: .9rem;
+    }
 
     .ficha-entrevista {
         padding: 16px;
@@ -1430,5 +1394,31 @@ button {
         font-size: 1.15rem;
     }
 
+    .resultados-pendentes {
+        padding: 25px;
+    }
+
+    .foto-integrante-container,
+    .foto-integrante,
+    .foto-integrante-container .avatar {
+        width: 105px;
+        height: 105px;
+    }
 }
 
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
